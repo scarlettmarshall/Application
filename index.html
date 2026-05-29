@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiteMatch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">BiteMatch</p>
+        <h1>Turn vague cravings into real meals</h1>
+        <p class="hero-description">
+          Describe what you&apos;re in the mood for—like &ldquo;spicy, handheld&rdquo; or &ldquo;comfort food&rdquo;—and BiteMatch will suggest dishes to match.
+        </p>
+      </div>
+      <div class="search-panel" aria-label="Craving search panel">
+        <form id="craving-form" class="search-form">
+          <label for="craving-input" class="input-label">I&apos;m craving</label>
+          <div class="input-row">
+            <input id="craving-input" type="text" name="craving" placeholder="e.g. cheesy and savory" aria-describedby="input-help" autocomplete="off" />
+            <button id="search-button" type="submit" class="button button-primary">Find My Meal</button>
+          </div>
+          <p id="input-help" class="helper-text">Try typing spicy, handheld, comforting, light, sweet, or crispy.</p>
+        </form>
+
+        <div class="chip-group" aria-label="Sample cravings">
+          <button type="button" class="chip">Spicy</button>
+          <button type="button" class="chip">Handheld</button>
+          <button type="button" class="chip">Comfort Food</button>
+          <button type="button" class="chip">Light</button>
+          <button type="button" class="chip">Sweet</button>
+          <button type="button" class="chip">Cheesy</button>
+          <button type="button" class="chip">Savory</button>
+          <button type="button" class="chip">Crispy</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="status-panel" class="status-panel" aria-live="polite"></section>
+
+    <section id="results-panel" class="results-panel hidden">
+      <div class="results-header">
+        <div>
+          <p class="results-title">Top matches for your craving</p>
+          <p id="explanation-text" class="explanation-text"></p>
+        </div>
+        <div class="small-actions">
+          <button id="surprise-button" type="button" class="button button-secondary">Surprise Me</button>
+          <button id="clear-button" type="button" class="button button-secondary">Clear Search</button>
+        </div>
+      </div>
+      <div id="cards-grid" class="cards-grid"></div>
+    </section>
+
+    <section id="fallback-panel" class="fallback-panel hidden" aria-live="polite"></section>
+
+    <section id="history-panel" class="history-panel hidden">
+      <h2>Recent searches</h2>
+      <div id="recent-chips" class="chip-group"></div>
+    </section>
+  </div>
+
+  <footer class="app-footer">
+    <p>Built by Scarlett Marshall • BiteMatch</p>
+  </footer>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card" role="document">
+      <button id="close-modal" type="button" class="modal-close" aria-label="Close details">×</button>
+      <div class="modal-content">
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-copy">
+          <p id="modal-category" class="modal-tag"></p>
+          <h2 id="modal-title"></h2>
+          <p id="modal-area" class="modal-meta"></p>
+          <div id="modal-ingredients" class="ingredient-list"></div>
+          <p id="modal-instructions" class="modal-instructions"></p>
+          <div id="modal-links" class="modal-links"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
